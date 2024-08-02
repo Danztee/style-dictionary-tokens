@@ -22,6 +22,18 @@ const config = {
         },
       ],
     },
+
+    ios: {
+      transformGroup: "ios",
+      buildPath: "dist/ios/",
+      files: [
+        {
+          destination: "StyleDictionaryVariables.swift",
+          format: "ios-swift/class.swift",
+          className: "StyleDictionaryVariables",
+        },
+      ],
+    },
   },
 };
 
