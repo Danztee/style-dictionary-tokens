@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <% _.each(allProperties, function(prop) { %>
+      <% if (prop.type === 'color') { %>
+        <color name="<%= prop.name %>"><%= prop.value %></color>
+      <% } else if (prop.type === 'size') { %>
+        <dimen name="<%= prop.name %>"><%= prop.value %></dimen>
+      <% } else if (prop.type === 'time' || prop.type === 'opacity' || prop.type === 'multiplier') { %>
+        <dimen name="<%= prop.name %>"><%= prop.value %></dimen>
+      <% } else if (prop.type === 'content') { %>
+        <string name="<%= prop.name %>"><%= prop.value %></string>
+      <% } else { %>
+        <item name="<%= prop.name %>"><%= prop.value %></item>
+      <% } %>
+    <% }); %>
+</resources>

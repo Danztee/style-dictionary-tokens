@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <% _.each(allProperties, function(prop) { %>
+      <% if (prop.type === 'color') { %>
+        <key><%= prop.name %></key><string><%= prop.value %></string>
+      <% } else if (prop.type === 'size') { %>
+        <key><%= prop.name %></key><integer><%= prop.value %></integer>
+      <% } else if (prop.type === 'time' || prop.type === 'opacity') { %>
+        <key><%= prop.name %></key><real><%= prop.value %></real>
+      <% } else if (prop.type === 'content') { %>
+        <key><%= prop.name %></key><string><%= prop.value %></string>
+      <% } else { %>
+        <key><%= prop.name %></key><string><%= prop.value %></string>
+      <% } %>
+    <% }); %>
+</dict>
+</plist>
