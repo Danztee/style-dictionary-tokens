@@ -3,22 +3,13 @@ import StyleDictionary from "style-dictionary-utils";
 const config = {
   source: ["tokens/**/*.json"],
   platforms: {
-    css: {
+    web: {
+      transformGroup: "web",
       buildPath: "dist/web/",
-      // transformGroup: ["css"],
-      transforms: [
-        "attribute/cti",
-        "name/cti/kebab",
-        "dimension/pixelToRem",
-        "color/rgba",
-      ],
       files: [
         {
-          format: "css/variables",
           destination: "variables.css",
-          options: {
-            outputReferences: true,
-          },
+          format: "css/variables",
         },
       ],
     },
@@ -31,6 +22,17 @@ const config = {
           destination: "StyleDictionaryVariables.swift",
           format: "ios-swift/class.swift",
           className: "StyleDictionaryVariables",
+        },
+      ],
+    },
+
+    android: {
+      transformGroup: "android",
+      buildPath: "dist/android/",
+      files: [
+        {
+          destination: "colors.xml",
+          format: "android/colors",
         },
       ],
     },
